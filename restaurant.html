@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Restaurant Listings - BusinessList</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    body {
+      background-color: #f8f9fa;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+    .navbar-brand {
+      font-weight: 700;
+      color: #0d6efd !important;
+    }
+    .hero-section {
+      background: linear-gradient(135deg, #dc3545 0%, #a71d2a 100%);
+      color: white;
+      border-radius: 0 0 20px 20px;
+      padding: 2rem 0;
+      margin-bottom: 2rem;
+    }
+    .listing-card {
+      transition: transform 0.2s, box-shadow 0.2s;
+      border-radius: 12px;
+      overflow: hidden;
+      border: none;
+      margin-bottom: 25px;
+    }
+    .listing-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+    }
+    .rating {
+      color: #ffc107;
+    }
+    .category-badge {
+      position: absolute;
+      top: 15px;
+      right: 15px;
+      background: #dc3545;
+      color: white;
+      padding: 5px 10px;
+      border-radius: 20px;
+      font-size: 0.8rem;
+    }
+    .filter-section {
+      background: white;
+      border-radius: 12px;
+      padding: 20px;
+      margin-bottom: 25px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    }
+    .map-container {
+      border-radius: 12px;
+      overflow: hidden;
+      height: 100%;
+      min-height: 300px;
+      background: #e9ecef;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #6c757d;
+    }
+    .breadcrumb {
+      background-color: transparent;
+      padding: 0;
+    }
+  </style>
+</head>
+<body>
+  <!-- Navigation Bar -->
+  <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm">
+    <div class="container">
+      <a class="navbar-brand" href="index.html">
+        <i class="fas fa-list-alt me-2"></i>BusinessList
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="index.html"><i class="fas fa-home me-1"></i> Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="categories.html"><i class="fas fa-folder me-1"></i> Categories</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#"><i class="fas fa-star me-1"></i> Featured</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#"><i class="fas fa-phone me-1"></i> Contact</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <div class="hero-section">
+    <div class="container">
+      <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a href="index.html" class="text-white">Home</a></li>
+          <li class="breadcrumb-item"><a href="categories.html" class="text-white">Categories</a></li>
+          <li class="breadcrumb-item active text-white" aria-current="page">Restaurants</li>
+        </ol>
+      </nav>
+      <h1 class="display-5 fw-bold mb-3">Restaurant Listings</h1>
+      <p class="lead mb-4">Discover the best dining experiences in your area</p>
+      <div class="d-flex align-items-center text-white">
+        <div class="me-4">
+          <i class="fas fa-utensils me-2"></i> 245 Listings
+        </div>
+        <div>
+          <i class="fas fa-map-marker-alt me-2"></i> New York, NY
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Main Content -->
+  <div class="container py-4">
+    <div class="row">
+      <!-- Filters Sidebar -->
+      <div class="col-lg-4">
+        <div class="filter-section">
+          <h5 class="mb-4">Filter Results</h5>
+          
+          <div class="mb-4">
+            <h6>Cuisine Type</h6>
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" id="cuisine1" checked>
+              <label class="form-check-label" for="cuisine1">Italian</label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" id="cuisine2" checked>
+              <label class="form-check-label" for="cuisine2">Chinese</label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" id="cuisine3">
+              <label class="form-check-label" for="cuisine3">Mexican</label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" id="cuisine4">
+              <label class="form-check-label" for="cuisine4">Indian</label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" id="cuisine5">
+              <label class="form-check-label" for="cuisine5">American</label>
+            </div>
+          </div>
+          
+          <div class="mb-4">
+            <h6>Price Range</h6>
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="priceRange" id="price1" checked>
+              <label class="form-check-label" for="price1">$</label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="priceRange" id="price2">
+              <label class="form-check-label" for="price2">$$</label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="priceRange" id="price3">
+              <label class="form-check-label" for="price3">$$$</label>
+            </div>
+          </div>
+          
+          <div class="mb-4">
+            <h6>Rating</h6>
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" id="rating5" checked>
+              <label class="form-check-label" for="rating5">
+                <span class="rating">
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                </span>
+              </label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" id="rating4" checked>
+              <label class="form-check-label" for="rating4">
+                <span class="rating">
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="far fa-star"></i> & up
+                </span>
+              </label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" id="rating3">
+              <label class="form-check-label" for="rating3">
+                <span class="rating">
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="far fa-star"></i>
+                  <i class="far fa-star"></i> & up
+                </span>
+              </label>
+            </div>
+          </div>
+          
+          <button class="btn btn-danger w-100">Apply Filters</button>
+        </div>
+        
+        <div class="map-container mt-4">
+          <div class="text-center">
+            <i class="fas fa-map-marked-alt display-4 mb-3"></i>
+            <p>Interactive Map</p>
+            <p class="small">Showing restaurant locations</p>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Listings -->
+      <div class="col-lg-8">
+        <div class="d-flex justify-content-between align-items-center mb-4">
+          <div>
+            <span class="text-muted">Showing 8 of 245 listings</span>
+          </div>
+          <div>
+            <select class="form-select">
+              <option>Sort by: Rating</option>
+              <option>Sort by: Name</option>
+              <option>Sort by: Distance</option>
+            </select>
+          </div>
+        </div>
+        
+        <!-- Listing Item -->
+        <div class="card listing-card">
+          <div class="category-badge">Restaurant</div>
+          <div class="row g-0">
+            <div class="col-md-4">
+              <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8cmVzdGF1cmFudHxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60" class="img-fluid rounded-start h-100 w-100" alt="Italian Bistro" style="object-fit: cover;">
+            </div>
+            <div class="col-md-8">
+              <div class="card-body">
+                <div class="d-flex justify-content-between">
+                  <h5 class="card-title">Italian Bistro</h5>
+                  <div class="rating">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star-half-alt"></i>
+                    <span class="text-muted">4.5 (128 reviews)</span>
+                  </div>
+                </div>
+                <p class="card-text">Authentic Italian cuisine with a modern twist. Family-owned since 1985.</p>
+                <div class="d-flex justify-content-between align-items-center">
+                  <div>
+                    <span class="badge bg-light text-dark">$$</span>
+                    <span class="badge bg-light text-dark"><i class="fas fa-map-marker-alt me-1"></i> 2.3 miles</span>
+                    <span class="badge bg-light text-dark"><i class="fas fa-utensils me-1"></i> Italian</span>
+                  </div>
+                  <a href="listing-detail.html" class="btn btn-danger">View Details</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Listing Item -->
+        <div class="card listing-card">
+          <div class="category-badge">Restaurant</div>
+          <div class="row g-0">
+            <div class="col-md-4">
+              <img src="https://images.unsplash.com/photo-1552566626-52f8b828add9?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8OHx8cmVzdGF1cmFudHxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60" class="img-fluid rounded-start h-100 w-100" alt="Dragon Palace" style="object-fit: cover;">
+            </div>
+            <div class="col-md-8">
+              <div class="card-body">
+                <div class="d-flex justify-content-between">
+                  <h5 class="card-title">Dragon Palace</h5>
+                  <div class="rating">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="far fa-star"></i>
+                    <span class="text-muted">4.0 (96 reviews)</span>
+                  </div>
+                </div>
+                <p class="card-text">Authentic Chinese cuisine with specialties from Szechuan and Hunan provinces.</p>
+                <div class="d-flex justify-content-between align-items-center">
+                  <div>
+                    <span class="badge bg-light text-dark">$$</span>
+                    <span class="badge bg-light text-dark"><i class="fas fa-map-marker-alt me-1"></i> 1.7 miles</span>
+                    <span class="badge bg-light text-dark"><i class="fas fa-utensils me-1"></i> Chinese</span>
+                  </div>
+                  <a href="listing-detail.html" class="btn btn-danger">View Details</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Listing Item -->
+        <div class="card listing-card">
+          <div class="category-badge">Restaurant</div>
+          <div class="row g-0">
+            <div class="col-md-4">
+              <img src="https://images.unsplash.com/photo-1590846406792-0adc7f938f1d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8OXx8cmVzdGF1cmFudHxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60" class="img-fluid rounded-start h-100 w-100" alt="Taco Fiesta" style="object-fit: cover;">
+            </div>
+            <div class="col-md-8">
+              <div class="card-body">
+                <div class="d-flex justify-content-between">
+                  <h5 class="card-title">Taco Fiesta</h5>
+                  <div class="rating">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <span class="text-muted">4.8 (215 reviews)</span>
+                  </div>
+                </div>
+                <p class="card-text">The best authentic Mexican street food in town. Fresh ingredients daily.</p>
+                <div class="d-flex justify-content-between align-items-center">
+                  <div>
+                    <span class="badge bg-light text-dark">$</span>
+                    <span class="badge bg-light text-dark"><i class="fas fa-map-marker-alt me-1"></i> 0.5 miles</span>
+                    <span class="badge bg-light text-dark"><i class="fas fa-utensils me-1"></i> Mexican</span>
+                  </div>
+                  <a href="listing-detail.html" class="btn btn-danger">View Details</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Listing Item -->
+        <div class="card listing-card">
+          <div class="category-badge">Restaurant</div>
+          <div class="row g-0">
+            <div class="col-md-4">
+              <img src="https://images.unsplash.com/photo-1572802419224-296b0aeee0d9?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTZ8fHJlc3RhdXJhbnR8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60" class="img-fluid rounded-start h-100 w-100" alt="Burger Heaven" style="object-fit: cover;">
+            </div>
+            <div class="col-md-8">
+              <div class="card-body">
+                <div class="d-flex justify-content-between">
+                  <h5 class="card-title">Burger Heaven</h5>
+                  <div class="rating">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star-half-alt"></i>
+                    <span class="text-muted">4.3 (142 reviews)</span>
+                  </div>
+                </div>
+                <p class="card-text">Gourmet burgers and hand-cut fries. 20+ craft beers on tap.</p>
+                <div class="d-flex justify-content-between align-items-center">
+                  <div>
+                    <span class="badge bg-light text-dark">$$</span>
+                    <span class="badge bg-light text-dark"><i class="fas fa-map-marker-alt me-1"></i> 1.2 miles</span>
+                    <span class="badge bg-light text-dark"><i class="fas fa-utensils me-1"></i> American</span>
+                  </div>
+                  <a href="listing-detail.html" class="btn btn-danger">View Details</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Pagination -->
+        <nav aria-label="Listings pagination" class="mt-4">
+          <ul class="pagination justify-content-center">
+            <li class="page-item disabled">
+              <a class="page-link" href="#" tabindex="-1">Previous</a>
+            </li>
+            <li class="page-item active"><a class="page-link" href="#">1</a></li>
+            <li class="page-item"><a class="page-link" href="#">2</a></li>
+            <li class="page-item"><a class="page-link" href="#">3</a></li>
+            <li class="page-item">
+              <a class="page-link" href="#">Next</a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="mt-5">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-4 mb-4">
+          <h5>BusinessList</h5>
+          <p class="text-muted">Find the best local businesses in your area. Reviews, ratings, and contact information all in one place.</p>
+        </div>
+        <div class="col-md-2 mb-4">
+          <h5>Quick Links</h5>
+          <ul class="list-unstyled">
+            <li><a href="#" class="text-decoration-none text-muted">Home</a></li>
+            <li><a href="#" class="text-decoration-none text-muted">Categories</a></li>
+            <li><a href="#" class="text-decoration-none text-muted">Add Listing</a></li>
+            <li><a href="#" class="text-decoration-none text-muted">Contact Us</a></li>
+          </ul>
+        </div>
+        <div class="col-md-2 mb-4">
+          <h5>Legal</h5>
+          <ul class="list-unstyled">
+            <li><a href="#" class="text-decoration-none text-muted">Privacy Policy</a></li>
+            <li><a href="#" class="text-decoration-none text-muted">Terms of Service</a></li>
+            <li><a href="#" class="text-decoration-none text-muted">Cookie Policy</a></li>
+          </ul>
+        </div>
+        <div class="col-md-4 mb-4">
+          <h5>Subscribe to Our Newsletter</h5>
+          <div class="input-group mb-3">
+            <input type="email" class="form-control" placeholder="Your email address">
+            <button class="btn btn-primary" type="button">Subscribe</button>
+          </div>
+          <div class="d-flex mt-3">
+            <a href="#" class="me-3 text-decoration-none text-muted"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" class="me-3 text-decoration-none text-muted"><i class="fab fa-twitter"></i></a>
+            <a href="#" class="me-3 text-decoration-none text-muted"><i class="fab fa-instagram"></i></a>
+            <a href="#" class="text-decoration-none text-muted"><i class="fab fa-linkedin-in"></i></a>
+          </div>
+        </div>
+      </div>
+      <hr>
+      <p class="text-center text-muted">© 2023 BusinessList. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <!-- Bootstrap & JavaScript -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

@@ -11,85 +11,228 @@
   <style>
     body {
       background-color: #f8f9fa;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     }
     .category-card {
       transition: transform 0.2s, box-shadow 0.2s;
       cursor: pointer;
+      border-radius: 12px;
+      border: none;
     }
     .category-card:hover {
       transform: translateY(-5px);
-      box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+      box-shadow: 0 10px 20px rgba(0,0,0,0.15);
     }
     .category-icon {
       font-size: 40px;
-      color: #0d6efd;
       margin-bottom: 10px;
+    }
+    .navbar-brand {
+      font-weight: 700;
+      color: #0d6efd !important;
+    }
+    .category-restaurants .category-icon { color: #dc3545; }
+    .category-hotels .category-icon { color: #fd7e14; }
+    .category-automobiles .category-icon { color: #6f42c1; }
+    .category-healthcare .category-icon { color: #20c997; }
+    .category-shopping .category-icon { color: #d63384; }
+    .category-services .category-icon { color: #0dcaf0; }
+    .category-education .category-icon { color: #198754; }
+    .category-it .category-icon { color: #0d6efd; }
+    
+    .hero-section {
+      background: linear-gradient(135deg, #0d6efd 0%, #0a58ca 100%);
+      color: white;
+      border-radius: 0 0 20px 20px;
+      padding: 2rem 0;
+      margin-bottom: 2rem;
+    }
+    
+    .search-box {
+      max-width: 500px;
+      margin: 0 auto;
+    }
+    
+    footer {
+      background-color: #f8f9fa;
+      padding: 2rem 0;
+      margin-top: 3rem;
     }
   </style>
 </head>
 <body>
-  <div class="container py-5">
+  <!-- Navigation Bar -->
+  <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm">
+    <div class="container">
+      <a class="navbar-brand" href="index.html">
+        <i class="fas fa-list-alt me-2"></i>BusinessList
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="index.html"><i class="fas fa-home me-1"></i> Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" href="categories.html"><i class="fas fa-folder me-1"></i> Categories</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#"><i class="fas fa-star me-1"></i> Featured</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#"><i class="fas fa-phone me-1"></i> Contact</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section with Search -->
+  <div class="hero-section">
+    <div class="container text-center">
+      <h1 class="display-5 fw-bold mb-3">Find Local Businesses</h1>
+      <p class="lead mb-4">Discover the best businesses in your area by category</p>
+      <div class="search-box">
+        <div class="input-group mb-3">
+          <input type="text" class="form-control form-control-lg" placeholder="Search for businesses...">
+          <button class="btn btn-light btn-lg" type="button">
+            <i class="fas fa-search"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Categories Section -->
+  <div class="container py-4">
     <h2 class="text-center mb-4">Browse Categories</h2>
+    <p class="text-center text-muted mb-5">Click on any category to view businesses in that category</p>
     <div class="row g-4">
 
       <!-- Category Item -->
       <div class="col-md-3 col-sm-6">
-        <div class="card text-center p-4 category-card">
+        <div class="card text-center p-4 category-card category-restaurants" onclick="handleCategoryClick('Restaurants')">
           <i class="fas fa-utensils category-icon"></i>
           <h5 class="card-title">Restaurants</h5>
+          <p class="text-muted small">245 listings</p>
         </div>
       </div>
 
       <div class="col-md-3 col-sm-6">
-        <div class="card text-center p-4 category-card">
+        <div class="card text-center p-4 category-card category-hotels" onclick="handleCategoryClick('Hotels')">
           <i class="fas fa-hotel category-icon"></i>
           <h5 class="card-title">Hotels</h5>
+          <p class="text-muted small">120 listings</p>
         </div>
       </div>
 
       <div class="col-md-3 col-sm-6">
-        <div class="card text-center p-4 category-card">
+        <div class="card text-center p-4 category-card category-automobiles" onclick="handleCategoryClick('Automobiles')">
           <i class="fas fa-car category-icon"></i>
           <h5 class="card-title">Automobiles</h5>
+          <p class="text-muted small">89 listings</p>
         </div>
       </div>
 
       <div class="col-md-3 col-sm-6">
-        <div class="card text-center p-4 category-card">
+        <div class="card text-center p-4 category-card category-healthcare" onclick="handleCategoryClick('Healthcare')">
           <i class="fas fa-stethoscope category-icon"></i>
           <h5 class="card-title">Healthcare</h5>
+          <p class="text-muted small">156 listings</p>
         </div>
       </div>
 
       <div class="col-md-3 col-sm-6">
-        <div class="card text-center p-4 category-card">
+        <div class="card text-center p-4 category-card category-shopping" onclick="handleCategoryClick('Shopping')">
           <i class="fas fa-shopping-bag category-icon"></i>
           <h5 class="card-title">Shopping</h5>
+          <p class="text-muted small">342 listings</p>
         </div>
       </div>
 
       <div class="col-md-3 col-sm-6">
-        <div class="card text-center p-4 category-card">
+        <div class="card text-center p-4 category-card category-services" onclick="handleCategoryClick('Services')">
           <i class="fas fa-tools category-icon"></i>
           <h5 class="card-title">Services</h5>
+          <p class="text-muted small">211 listings</p>
         </div>
       </div>
 
       <div class="col-md-3 col-sm-6">
-        <div class="card text-center p-4 category-card">
+        <div class="card text-center p-4 category-card category-education" onclick="handleCategoryClick('Education')">
           <i class="fas fa-graduation-cap category-icon"></i>
           <h5 class="card-title">Education</h5>
+          <p class="text-muted small">98 listings</p>
         </div>
       </div>
 
       <div class="col-md-3 col-sm-6">
-        <div class="card text-center p-4 category-card">
+        <div class="card text-center p-4 category-card category-it" onclick="handleCategoryClick('IT & Tech')">
           <i class="fas fa-laptop category-icon"></i>
           <h5 class="card-title">IT & Tech</h5>
+          <p class="text-muted small">134 listings</p>
         </div>
       </div>
 
     </div>
   </div>
+
+  <!-- Footer -->
+  <footer class="mt-5">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-4 mb-4">
+          <h5>BusinessList</h5>
+          <p class="text-muted">Find the best local businesses in your area. Reviews, ratings, and contact information all in one place.</p>
+        </div>
+        <div class="col-md-2 mb-4">
+          <h5>Quick Links</h5>
+          <ul class="list-unstyled">
+            <li><a href="#" class="text-decoration-none text-muted">Home</a></li>
+            <li><a href="#" class="text-decoration-none text-muted">Categories</a></li>
+            <li><a href="#" class="text-decoration-none text-muted">Add Listing</a></li>
+            <li><a href="#" class="text-decoration-none text-muted">Contact Us</a></li>
+          </ul>
+        </div>
+        <div class="col-md-2 mb-4">
+          <h5>Legal</h5>
+          <ul class="list-unstyled">
+            <li><a href="#" class="text-decoration-none text-muted">Privacy Policy</a></li>
+            <li><a href="#" class="text-decoration-none text-muted">Terms of Service</a></li>
+            <li><a href="#" class="text-decoration-none text-muted">Cookie Policy</a></li>
+          </ul>
+        </div>
+        <div class="col-md-4 mb-4">
+          <h5>Subscribe to Our Newsletter</h5>
+          <div class="input-group mb-3">
+            <input type="email" class="form-control" placeholder="Your email address">
+            <button class="btn btn-primary" type="button">Subscribe</button>
+          </div>
+          <div class="d-flex mt-3">
+            <a href="#" class="me-3 text-decoration-none text-muted"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" class="me-3 text-decoration-none text-muted"><i class="fab fa-twitter"></i></a>
+            <a href="#" class="me-3 text-decoration-none text-muted"><i class="fab fa-instagram"></i></a>
+            <a href="#" class="text-decoration-none text-muted"><i class="fab fa-linkedin-in"></i></a>
+          </div>
+        </div>
+      </div>
+      <hr>
+      <p class="text-center text-muted">© 2023 BusinessList. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <!-- Bootstrap & JavaScript -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    function handleCategoryClick(categoryName) {
+      // Store the selected category in localStorage
+      localStorage.setItem('selectedCategory', categoryName);
+      
+      // Redirect to the listings page
+      window.location.href = 'listings.html';
+    }
+  </script>
 </body>
 </html>

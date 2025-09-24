@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>All Business Listings</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Font Awesome for icons -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+  
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container">
+      <a class="navbar-brand fw-bold" href="#">BusinessList</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link active" href="#">All Listings</a></li>
+          <li class="nav-item"><a class="nav-link" href="categories.html">Categories</a></li>
+          <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <div class="bg-primary text-white text-center py-5">
+    <h1 class="fw-bold">All Business Listings</h1>
+    <p class="lead">Browse through all businesses in our directory</p>
+  </div>
+
+  <!-- Listings Section -->
+  <div class="container my-5">
+    <div class="row g-4">
+      <!-- Listing Card -->
+      <div class="col-md-4">
+        <div class="card h-100 shadow-sm">
+          <img src="https://via.placeholder.com/400x200" class="card-img-top" alt="Business Image">
+          <div class="card-body">
+            <h5 class="card-title">ABC Electronics</h5>
+            <p class="card-text text-muted"><i class="fas fa-map-marker-alt me-2"></i>Gurgaon, India</p>
+            <p class="card-text">Best electronics store offering gadgets, mobiles, and accessories at great prices.</p>
+            <a href="#" class="btn btn-primary btn-sm">View Details</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Listing Card -->
+      <div class="col-md-4">
+        <div class="card h-100 shadow-sm">
+          <img src="https://via.placeholder.com/400x200" class="card-img-top" alt="Business Image">
+          <div class="card-body">
+            <h5 class="card-title">FreshBite Restaurant</h5>
+            <p class="card-text text-muted"><i class="fas fa-map-marker-alt me-2"></i>Delhi, India</p>
+            <p class="card-text">Serving delicious Indian & continental dishes with a cozy ambiance.</p>
+            <a href="#" class="btn btn-primary btn-sm">View Details</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Listing Card -->
+      <div class="col-md-4">
+        <div class="card h-100 shadow-sm">
+          <img src="https://via.placeholder.com/400x200" class="card-img-top" alt="Business Image">
+          <div class="card-body">
+            <h5 class="card-title">CoolTech AC Repair</h5>
+            <p class="card-text text-muted"><i class="fas fa-map-marker-alt me-2"></i>Noida, India</p>
+            <p class="card-text">Expert AC repair and installation services with affordable pricing.</p>
+            <a href="#" class="btn btn-primary btn-sm">View Details</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Pagination -->
+  <div class="container text-center mb-5">
+    <nav>
+      <ul class="pagination justify-content-center">
+        <li class="page-item disabled"><a class="page-link" href="#">Previous</a></li>
+        <li class="page-item active"><a class="page-link" href="#">1</a></li>
+        <li class="page-item"><a class="page-link" href="#">2</a></li>
+        <li class="page-item"><a class="page-link" href="#">3</a></li>
+        <li class="page-item"><a class="page-link" href="#">Next</a></li>
+      </ul>
+    </nav>
+  </div>
+
+  <!-- Footer -->
+  <footer class="bg-dark text-white text-center py-3">
+    <p class="mb-0">&copy; 2025 BusinessList. All Rights Reserved.</p>
+  </footer>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
